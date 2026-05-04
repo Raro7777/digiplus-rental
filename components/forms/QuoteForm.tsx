@@ -10,7 +10,11 @@ const inputClass =
   "mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20";
 const labelClass = "text-sm font-medium text-slate-700";
 
-export function QuoteForm() {
+type QuoteFormProps = {
+  defaultDesiredProduct?: string;
+};
+
+export function QuoteForm({ defaultDesiredProduct = "" }: QuoteFormProps) {
   const [state, formAction, pending] = useActionState(submitQuote, initial);
 
   if (state.ok) {
@@ -85,7 +89,13 @@ export function QuoteForm() {
           <label className={labelClass} htmlFor="desiredProduct">
             희망 상품
           </label>
-          <input id="desiredProduct" name="desiredProduct" className={inputClass} />
+          <input
+            id="desiredProduct"
+            name="desiredProduct"
+            className={inputClass}
+            defaultValue={defaultDesiredProduct}
+            placeholder="예: 신도리코 D470, bizhub 등"
+          />
         </div>
         <div>
           <label className={labelClass} htmlFor="q-monthlyVolume">

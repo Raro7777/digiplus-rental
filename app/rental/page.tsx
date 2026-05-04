@@ -14,8 +14,9 @@ export default function RentalPage() {
       <h1 className="text-3xl font-bold text-slate-900">복합기 렌탈 안내</h1>
       <p className="mt-4 max-w-3xl text-slate-600">
         복합기 렌탈은 단순히 장비를 빌리는 것이 아니라, 월 출력량, 토너 사용량,
-        유지보수 조건까지 함께 고려해야 합니다. 디지플러스는 고객의 출력 환경을
-        먼저 확인한 뒤 과한 장비가 아닌 적정 장비와 렌탈 조건을 안내드립니다.
+        유지보수 조건까지 함께 고려해야 합니다. 디지플러스는 부천·인천·시흥·안산
+        사업장의 출력 환경을 먼저 확인한 뒤, 신도리코 D470·태흥아이에스 bizhub 등
+        적정 장비와 렌탈 조건을 안내드립니다.
       </p>
 
       <ol className="mt-10 space-y-8 text-slate-700">
@@ -53,8 +54,8 @@ export default function RentalPage() {
       <div className="mt-12 rounded-2xl bg-slate-50 p-6">
         <h2 className="text-lg font-semibold text-slate-900">디지플러스 상담 방식</h2>
         <p className="mt-2 text-sm text-slate-600">
-          설치 지역·업종·월 출력량을 확인한 뒤, 흑백/컬러 비율과 토너 조건을
-          반영해 견적 방향을 잡습니다.
+          설치 지역(부천·인천·시흥·안산)·업종·월 출력량을 확인한 뒤, 흑백/컬러
+          비율과 토너 조건을 반영해 견적 방향을 잡습니다.
         </p>
         <CtaButtons className="mt-6" />
         <p className="mt-6 text-center text-sm">

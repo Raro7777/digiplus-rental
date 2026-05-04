@@ -15,15 +15,25 @@ const defaults = {
     "경기도 부천시 길주로411번길 20, 춘의디아크원 911호",
 } as const;
 
+/** 핵심 영업 권역 (표기용) */
+export const coreServiceCities = [
+  "부천",
+  "인천",
+  "시흥",
+  "안산",
+] as const;
+
 export const site = {
   name: "디지플러스",
   companyEn: process.env.NEXT_PUBLIC_COMPANY_EN ?? defaults.companyEn,
   businessLine: process.env.NEXT_PUBLIC_BUSINESS_LINE ?? defaults.businessLine,
   contactTitle: process.env.NEXT_PUBLIC_CONTACT_TITLE ?? defaults.contactTitle,
   contactName: process.env.NEXT_PUBLIC_CONTACT_NAME ?? defaults.contactName,
-  tagline: "시흥·안산 사업장 복합기 렌탈",
+  tagline: "부천·인천·시흥·안산 사업장 복합기 렌탈",
   description:
-    "시흥·정왕·배곧·시화공단 사업장 복합기 렌탈, 렌탈료 진단·무료 견적, 토너·AS 상담.",
+    "부천·인천·시흥·안산 사업장 복합기·복사기 렌탈, 신도리코 D470·태흥아이에스 bizhub 상담, 렌탈료 진단·무료 견적, 토너·AS 상담.",
+  positioningLine:
+    "출력량 기준으로 맞춰주는 서남권 사업장 복합기 렌탈 전문 업체",
   /** 사무실 대표번호 (표시용) */
   officeTelDisplay:
     process.env.NEXT_PUBLIC_OFFICE_TEL ?? defaults.officeTelDisplay,
@@ -45,15 +55,17 @@ export const site = {
     process.env.NEXT_PUBLIC_MOBILE_TEL ??
     (process.env.NEXT_PUBLIC_MOBILE ?? defaults.mobileDisplay).replace(/\D/g, ""),
   kakaoUrl: process.env.NEXT_PUBLIC_KAKAO_URL ?? "",
+  /** 푸터·요약용 권역 문구 */
+  regionSummary:
+    "부천(상동·중동·송내·역곡), 인천(남동·연수·미추홀·부평·서구), 시흥(정왕·배곧·장현·은행·월곶·시화공단), 안산(단원·상록·반월·스마트허브)",
+  /** @deprecated 푸터 등 — `regionSummary` + `coreServiceCities` 사용 */
   regions: [
+    "부천",
+    "인천",
     "시흥",
-    "정왕동",
-    "배곧",
-    "장현동",
-    "은행동",
-    "월곶동",
-    "시화공단",
     "안산",
+    "시화공단",
+    "반월공단",
   ],
 } as const;
 
@@ -61,6 +73,7 @@ export const navItems = [
   { href: "/", label: "홈" },
   { href: "/rental", label: "복합기 렌탈" },
   { href: "/products", label: "주요 상품" },
+  { href: "/regions", label: "지역 안내" },
   { href: "/diagnosis", label: "렌탈료 진단" },
   { href: "/quote", label: "견적 문의" },
   { href: "/faq", label: "FAQ" },

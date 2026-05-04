@@ -16,7 +16,7 @@ export function Footer() {
           <div>
             <p className="text-sm font-medium text-slate-900">빠른 링크</p>
             <ul className="mt-3 space-y-2 text-sm">
-              {navItems.slice(1, 6).map((item) => (
+              {navItems.slice(1, 7).map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -58,7 +58,10 @@ export function Footer() {
               </a>
             </p>
             <p className="mt-3 text-xs leading-relaxed text-slate-500">
-              {site.address}
+              {site.regionSummary}
+            </p>
+            <p className="mt-2 text-xs leading-relaxed text-slate-500">
+              사무실: {site.address}
             </p>
           </div>
         </div>

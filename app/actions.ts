@@ -8,19 +8,27 @@ export type FormState = {
   fieldErrors?: Record<string, string[]>;
 };
 
+const interestOptions = [
+  "신도리코 D470",
+  "태흥아이에스 bizhub",
+  "아직 모름",
+] as const;
+
 const diagnosisSchema = z.object({
   companyName: z.string().min(1, "회사명을 입력해 주세요."),
   contactName: z.string().min(1, "담당자명을 입력해 주세요."),
   phone: z.string().min(8, "연락처를 입력해 주세요."),
   region: z.string().min(1, "설치 지역을 입력해 주세요."),
+  currentModel: z.string().min(1, "현재 사용 중인 모델을 입력해 주세요."),
+  interestModel: z.enum(interestOptions, {
+    message: "관심 모델을 선택해 주세요.",
+  }),
   currentRent: z.string().min(1, "현재 월 렌탈료를 입력해 주세요."),
   monthlyVolume: z.string().min(1, "월 출력량을 입력해 주세요."),
   industry: z.string().optional(),
   colorRatio: z.string().optional(),
-  currentDevice: z.string().optional(),
   tonerIncluded: z.string().optional(),
   contractRemaining: z.string().optional(),
-  preferredDate: z.string().optional(),
   message: z.string().optional(),
   privacy: z.literal("on", {
     message: "개인정보 수집에 동의해 주세요.",
@@ -43,8 +51,7 @@ const quoteSchema = z.object({
 });
 
 function parseFormData(formData: FormData) {
-  const entries = Object.fromEntries(formData.entries());
-  return entries;
+  return Object.fromEntries(formData.entries());
 }
 
 export async function submitDiagnosis(
@@ -62,13 +69,12 @@ export async function submitDiagnosis(
     };
   }
 
-  // MVP: 서버 로그. 운영에서는 이메일/시트/DB 연동.
   console.info("[렌탈료 진단]", JSON.stringify(parsed.data, null, 2));
 
   return {
     ok: true,
     message:
-      "렌탈료 진단 신청이 완료되었습니다. 담당자가 확인 후 연락드리겠습니다.",
+      "렌탈료 진단 신청이 완료되었습니다. 디지플러스 담당자가 사용량과 조건을 확인한 뒤 맞춤 견적을 안내드리겠습니다.",
   };
 }
 

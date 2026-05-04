@@ -8,8 +8,8 @@ export function DiagnosisCta() {
           현재 복합기 렌탈료가 적정한지 무료로 확인해보세요.
         </h2>
         <p className="mt-4 max-w-2xl text-slate-200">
-          현재 월 렌탈료, 월 출력량, 컬러 사용량을 입력하시면 디지플러스가 사용
-          환경에 맞는 렌탈 조건을 안내드립니다.
+          현재 사용 중인 복합기 모델, 월 렌탈료, 월 출력량, 컬러 사용 비율을
+          입력하시면 디지플러스가 적정 장비와 렌탈 조건을 안내드립니다.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link

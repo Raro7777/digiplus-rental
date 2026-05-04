@@ -20,6 +20,10 @@ export function Solution() {
         <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
           디지플러스는 상품보다 먼저 사용 환경을 확인합니다.
         </h2>
+        <p className="mt-3 max-w-3xl text-sm text-slate-600">
+          설치부터 토너·AS까지 관리 흐름을 함께 설계하고, 신도리코 D470·태흥아이에스
+          bizhub 등 주력 라인으로 상담드립니다.
+        </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
           {cards.map((c) => (
             <article

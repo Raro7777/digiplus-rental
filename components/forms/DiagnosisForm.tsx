@@ -10,6 +10,12 @@ const inputClass =
   "mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20";
 const labelClass = "text-sm font-medium text-slate-700";
 
+const interestChoices = [
+  { value: "신도리코 D470", label: "신도리코 D470" },
+  { value: "태흥아이에스 bizhub", label: "태흥아이에스 bizhub" },
+  { value: "아직 모름", label: "아직 모름" },
+] as const;
+
 export function DiagnosisForm() {
   const [state, formAction, pending] = useActionState(submitDiagnosis, initial);
 
@@ -83,9 +89,44 @@ export function DiagnosisForm() {
             name="region"
             required
             className={inputClass}
-            placeholder="예: 시흥 정왕동"
+            placeholder="예: 부천 상동, 인천 연수구"
           />
           <FieldError name="region" errors={state.fieldErrors} />
+        </div>
+        <div className="sm:col-span-2">
+          <label className={labelClass} htmlFor="currentModel">
+            현재 사용 중인 모델 <span className="text-red-500">*</span>
+          </label>
+          <input
+            id="currentModel"
+            name="currentModel"
+            required
+            className={inputClass}
+            placeholder="모델명 또는 ‘없음’"
+          />
+          <FieldError name="currentModel" errors={state.fieldErrors} />
+        </div>
+        <div className="sm:col-span-2">
+          <span className={labelClass}>
+            관심 모델 <span className="text-red-500">*</span>
+          </span>
+          <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-4">
+            {interestChoices.map((c, i) => (
+              <label
+                key={c.value}
+                className="inline-flex items-center gap-2 text-sm text-slate-800"
+              >
+                <input
+                  type="radio"
+                  name="interestModel"
+                  value={c.value}
+                  required={i === 0}
+                />
+                {c.label}
+              </label>
+            ))}
+          </div>
+          <FieldError name="interestModel" errors={state.fieldErrors} />
         </div>
         <div>
           <label className={labelClass} htmlFor="currentRent">
@@ -96,7 +137,7 @@ export function DiagnosisForm() {
             name="currentRent"
             required
             className={inputClass}
-            placeholder="없으면 '없음'"
+            placeholder="없으면 ‘없음’"
           />
           <FieldError name="currentRent" errors={state.fieldErrors} />
         </div>
@@ -130,12 +171,6 @@ export function DiagnosisForm() {
             placeholder="예: 20%"
           />
         </div>
-        <div className="sm:col-span-2">
-          <label className={labelClass} htmlFor="currentDevice">
-            현재 사용 장비
-          </label>
-          <input id="currentDevice" name="currentDevice" className={inputClass} />
-        </div>
         <div>
           <label className={labelClass} htmlFor="tonerIncluded">
             토너 포함 여부
@@ -151,12 +186,6 @@ export function DiagnosisForm() {
             name="contractRemaining"
             className={inputClass}
           />
-        </div>
-        <div>
-          <label className={labelClass} htmlFor="preferredDate">
-            희망 설치일
-          </label>
-          <input id="preferredDate" name="preferredDate" className={inputClass} />
         </div>
         <div className="sm:col-span-2">
           <label className={labelClass} htmlFor="message">
