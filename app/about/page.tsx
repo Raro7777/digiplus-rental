@@ -22,7 +22,10 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <h2 className="mt-10 text-xl font-semibold text-slate-900">서비스 지역</h2>
+      <h2 className="mt-10 text-xl font-semibold text-slate-900">사무실</h2>
+      <p className="mt-2 text-sm leading-relaxed text-slate-600">{site.address}</p>
+
+      <h2 className="mt-8 text-xl font-semibold text-slate-900">서비스 지역</h2>
       <p className="mt-2 text-sm text-slate-600">
         {site.regions.join(", ")} 등 시흥 및 인근.
       </p>

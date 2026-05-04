@@ -31,7 +31,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href={`tel:${site.phoneTel}`}
+            href={`tel:${site.mobileTel}`}
             className="hidden rounded-lg bg-brand-navy px-3 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-brand-navy/90 sm:inline-flex"
           >
             전화
@@ -63,11 +63,11 @@ export function Header() {
               </Link>
             ))}
             <a
-              href={`tel:${site.phoneTel}`}
+              href={`tel:${site.mobileTel}`}
               className="mt-2 rounded-lg bg-brand-navy py-2.5 text-center text-sm font-medium text-white"
               onClick={() => setOpen(false)}
             >
-              전화 상담 ({site.phoneDisplay})
+              전화 상담 ({site.mobileDisplay})
             </a>
           </nav>
         </div>

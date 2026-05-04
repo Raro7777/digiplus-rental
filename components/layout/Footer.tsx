@@ -7,7 +7,10 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div>
-            <p className="font-semibold text-slate-900">{site.name}</p>
+            <p className="font-semibold text-slate-900">
+              {site.companyEn} {site.name}
+            </p>
+            <p className="mt-1 text-xs text-slate-500">{site.businessLine}</p>
             <p className="mt-2 text-sm text-slate-600">{site.description}</p>
           </div>
           <div>
@@ -28,15 +31,35 @@ export function Footer() {
           <div>
             <p className="text-sm font-medium text-slate-900">연락</p>
             <p className="mt-3 text-sm text-slate-600">
-              전화:{" "}
+              TEL:{" "}
               <a
-                href={`tel:${site.phoneTel}`}
+                href={`tel:${site.officeTel}`}
                 className="font-medium text-brand-blue hover:underline"
               >
-                {site.phoneDisplay}
+                {site.officeTelDisplay}
               </a>
             </p>
-            <p className="mt-2 text-sm text-slate-600">{site.address}</p>
+            <p className="mt-1 text-sm text-slate-600">
+              휴대:{" "}
+              <a
+                href={`tel:${site.mobileTel}`}
+                className="font-medium text-brand-blue hover:underline"
+              >
+                {site.mobileDisplay}
+              </a>
+            </p>
+            <p className="mt-1 text-sm text-slate-600">FAX: {site.faxDisplay}</p>
+            <p className="mt-1 text-sm text-slate-600">
+              <a
+                href={`mailto:${site.email}`}
+                className="text-brand-blue hover:underline"
+              >
+                {site.email}
+              </a>
+            </p>
+            <p className="mt-3 text-xs leading-relaxed text-slate-500">
+              {site.address}
+            </p>
           </div>
         </div>
         <p className="mt-8 border-t border-slate-200 pt-6 text-center text-xs text-slate-500">

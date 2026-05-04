@@ -37,7 +37,7 @@ export function CtaButtons({ className = "", dense }: Props) {
         카톡 상담하기
       </a>
       <a
-        href={`tel:${site.phoneTel}`}
+        href={`tel:${site.mobileTel}`}
         className={`${btn} ${pad} bg-brand-navy text-white hover:bg-brand-navy/90`}
       >
         전화 상담하기
