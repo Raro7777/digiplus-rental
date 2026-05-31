@@ -40,5 +40,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# local feature worktrees
+.worktrees/
+
 # 로컬에 잠긴 빈 `web` 폴더가 남은 경우(수동 삭제 전까지 무시)
 web/
