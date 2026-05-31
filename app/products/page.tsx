@@ -95,6 +95,48 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      <section className="mt-14">
+        <h2 className="text-xl font-semibold text-slate-900">
+          상담 시 비교하는 기준
+        </h2>
+        <div className="mt-6 overflow-hidden rounded-lg border border-slate-200">
+          <table className="w-full text-left text-sm">
+            <thead className="bg-slate-50 text-slate-900">
+              <tr>
+                <th className="px-4 py-3 font-semibold">기준</th>
+                <th className="px-4 py-3 font-semibold">확인 내용</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200 text-slate-600">
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">월 출력량</td>
+                <td className="px-4 py-3">
+                  기본 매수와 초과 비용에 직접 영향을 줍니다.
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">컬러 비율</td>
+                <td className="px-4 py-3">
+                  컬러 출력이 많은지, 흑백 중심인지에 따라 조건이 달라집니다.
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">토너 포함</td>
+                <td className="px-4 py-3">
+                  월 고정비와 관리 편의성을 함께 비교합니다.
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">기존 약정</td>
+                <td className="px-4 py-3">
+                  잔여기간과 현재 렌탈료를 기준으로 교체 여부를 검토합니다.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <div className="mt-14 rounded-2xl border border-slate-100 bg-slate-50 p-6">
         <p className="text-sm font-medium text-slate-900">다음 단계</p>
         <CtaButtons className="mt-4" />

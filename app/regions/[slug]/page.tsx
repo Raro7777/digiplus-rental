@@ -72,6 +72,36 @@ export default async function RegionSeoPage({ params }: Props) {
         </div>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-slate-900">지역 상담 포인트</h2>
+        <ul className="mt-4 space-y-3 text-sm text-slate-700">
+          {r.serviceNotes.map((note) => (
+            <li
+              key={note}
+              className="rounded-lg border border-slate-200 bg-white p-4"
+            >
+              {note}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-slate-900">
+          지역별 자주 묻는 질문
+        </h2>
+        <dl className="mt-4 space-y-4">
+          {r.faqs.map((faq) => (
+            <div key={faq.q}>
+              <dt className="text-sm font-semibold text-slate-900">{faq.q}</dt>
+              <dd className="mt-1 text-sm leading-relaxed text-slate-600">
+                {faq.a}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
       <div className="mt-12 space-y-4 rounded-2xl border border-brand-navy/15 bg-brand-navy/[0.03] p-6">
         <p className="text-sm font-medium text-slate-900">다음 단계</p>
         <div className="flex flex-wrap gap-3">

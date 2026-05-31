@@ -64,6 +64,18 @@ export default function KonicaBizhubPage() {
         </p>
       </section>
 
+      <section className="mt-10 rounded-lg border border-slate-200 bg-slate-50 p-6">
+        <h2 className="text-xl font-semibold text-slate-900">
+          상담 전에 확인하면 좋은 내용
+        </h2>
+        <ul className="mt-4 list-inside list-disc space-y-2 text-sm leading-relaxed text-slate-600">
+          <li>흑백 중심인지 컬러 출력도 필요한지</li>
+          <li>월 출력량과 기본 매수 초과 가능성</li>
+          <li>기존 장비 교체 상담이라면 현재 렌탈료와 약정 잔여기간</li>
+          <li>토너 포함 조건과 AS 접수 방식</li>
+        </ul>
+      </section>
+
       <section className="mt-10">
         <h2 className="text-xl font-semibold text-slate-900">자주 묻는 질문</h2>
         <dl className="mt-4 space-y-4">

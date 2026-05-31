@@ -16,7 +16,7 @@ export default function RegionsIndexPage() {
       <p className="mt-4 max-w-3xl text-slate-600">
         {coreServiceCities.join("·")} 및 세부 권역 사업장을 대상으로 상담·설치
         관리를 제공합니다. 아래 지역 페이지에서 고민 유형과 추천 모델(D470·
-        bizhub) 안내를 확인한 뒤, 렌탈료 진단 또는 무료 견적로 이어지실 수
+        bizhub) 안내를 확인한 뒤, 렌탈료 진단 또는 무료 견적으로 이어지실 수
         있습니다.
       </p>
 

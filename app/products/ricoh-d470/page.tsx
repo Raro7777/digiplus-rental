@@ -64,6 +64,18 @@ export default function RicohD470Page() {
         </p>
       </section>
 
+      <section className="mt-10 rounded-lg border border-slate-200 bg-slate-50 p-6">
+        <h2 className="text-xl font-semibold text-slate-900">
+          상담 전에 확인하면 좋은 내용
+        </h2>
+        <ul className="mt-4 list-inside list-disc space-y-2 text-sm leading-relaxed text-slate-600">
+          <li>월 평균 출력량과 컬러 출력 비율</li>
+          <li>A3 출력 필요 여부와 주로 출력하는 문서 종류</li>
+          <li>현재 렌탈료, 약정 잔여기간, 토너 포함 여부</li>
+          <li>설치 지역과 희망 설치 일정</li>
+        </ul>
+      </section>
+
       <section className="mt-10">
         <h2 className="text-xl font-semibold text-slate-900">자주 묻는 질문</h2>
         <dl className="mt-4 space-y-4">
