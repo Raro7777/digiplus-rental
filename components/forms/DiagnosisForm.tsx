@@ -25,7 +25,7 @@ export function DiagnosisForm() {
         className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-6 text-emerald-900"
         role="status"
       >
-        <p className="font-semibold">신청이 완료되었습니다.</p>
+        <p className="font-semibold">렌탈료 진단 신청이 접수되었습니다.</p>
         <p className="mt-2 text-sm leading-relaxed">{state.message}</p>
       </div>
     );
@@ -33,6 +33,16 @@ export function DiagnosisForm() {
 
   return (
     <form action={formAction} className="space-y-5">
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="d-website">웹사이트</label>
+        <input
+          id="d-website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       {!state.ok && state.message ? (
         <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800" role="alert">
           {state.message}
@@ -102,7 +112,7 @@ export function DiagnosisForm() {
             name="currentModel"
             required
             className={inputClass}
-            placeholder="모델명 또는 ‘없음’"
+            placeholder="모델명 또는 잘 모름"
           />
           <FieldError name="currentModel" errors={state.fieldErrors} />
         </div>
@@ -137,7 +147,7 @@ export function DiagnosisForm() {
             name="currentRent"
             required
             className={inputClass}
-            placeholder="없으면 ‘없음’"
+            placeholder="예: 8만원, 12만원, 없음, 잘 모름"
           />
           <FieldError name="currentRent" errors={state.fieldErrors} />
         </div>
@@ -150,7 +160,7 @@ export function DiagnosisForm() {
             name="monthlyVolume"
             required
             className={inputClass}
-            placeholder="대략 매수 또는 박스 수"
+            placeholder="예: 월 2,000매, 박스 1개, 잘 모름"
           />
           <FieldError name="monthlyVolume" errors={state.fieldErrors} />
         </div>

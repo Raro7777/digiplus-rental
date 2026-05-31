@@ -23,7 +23,7 @@ export function QuoteForm({ defaultDesiredProduct = "" }: QuoteFormProps) {
         className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-6 text-emerald-900"
         role="status"
       >
-        <p className="font-semibold">접수되었습니다.</p>
+        <p className="font-semibold">견적 문의가 접수되었습니다.</p>
         <p className="mt-2 text-sm leading-relaxed">{state.message}</p>
       </div>
     );
@@ -31,6 +31,16 @@ export function QuoteForm({ defaultDesiredProduct = "" }: QuoteFormProps) {
 
   return (
     <form action={formAction} className="space-y-5">
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="q-website">웹사이트</label>
+        <input
+          id="q-website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       {!state.ok && state.message ? (
         <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800" role="alert">
           {state.message}
@@ -75,6 +85,7 @@ export function QuoteForm({ defaultDesiredProduct = "" }: QuoteFormProps) {
             className={inputClass}
             inputMode="tel"
             autoComplete="tel"
+            placeholder="010-0000-0000"
           />
           <FieldError name="phone" errors={state.fieldErrors} />
         </div>
@@ -82,7 +93,13 @@ export function QuoteForm({ defaultDesiredProduct = "" }: QuoteFormProps) {
           <label className={labelClass} htmlFor="q-region">
             설치 지역 <span className="text-red-500">*</span>
           </label>
-          <input id="q-region" name="region" required className={inputClass} />
+          <input
+            id="q-region"
+            name="region"
+            required
+            className={inputClass}
+            placeholder="예: 부천 상동, 인천 연수구"
+          />
           <FieldError name="region" errors={state.fieldErrors} />
         </div>
         <div>
@@ -101,7 +118,12 @@ export function QuoteForm({ defaultDesiredProduct = "" }: QuoteFormProps) {
           <label className={labelClass} htmlFor="q-monthlyVolume">
             월 출력량
           </label>
-          <input id="q-monthlyVolume" name="monthlyVolume" className={inputClass} />
+          <input
+            id="q-monthlyVolume"
+            name="monthlyVolume"
+            className={inputClass}
+            placeholder="예: 월 2,000매, 잘 모름"
+          />
         </div>
         <div>
           <span className={labelClass}>컬러 사용 여부</span>
@@ -124,7 +146,12 @@ export function QuoteForm({ defaultDesiredProduct = "" }: QuoteFormProps) {
           <label className={labelClass} htmlFor="q-preferredDate">
             희망 설치일
           </label>
-          <input id="q-preferredDate" name="preferredDate" className={inputClass} />
+          <input
+            id="q-preferredDate"
+            name="preferredDate"
+            type="date"
+            className={inputClass}
+          />
         </div>
         <div className="sm:col-span-2">
           <label className={labelClass} htmlFor="q-message">
