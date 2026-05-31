@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaButtons } from "@/components/home/CtaButtons";
+import { JsonLd } from "@/components/seo/JsonLd";
 import {
   REGION_SLUGS,
   type RegionSlug,
   getRegionSeo,
   regionMetadata,
 } from "@/lib/regions-seo";
+import { breadcrumbJsonLd, faqJsonLd, siteUrl } from "@/lib/seo/json-ld";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -29,6 +31,14 @@ export default async function RegionSeoPage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "홈", url: siteUrl("/") },
+          { name: "지역 안내", url: siteUrl("/regions") },
+          { name: r.h1, url: siteUrl(`/regions/${slug}`) },
+        ])}
+      />
+      <JsonLd data={faqJsonLd(r.faqs)} />
       <p className="text-sm text-brand-blue">
         <Link href="/regions" className="hover:underline">
           지역 안내

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { faqJsonLd } from "@/lib/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -49,6 +51,7 @@ const faqs: { q: string; a: string }[] = [
 export default function FaqPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
+      <JsonLd data={faqJsonLd(faqs)} />
       <h1 className="text-3xl font-bold text-slate-900">자주 묻는 질문</h1>
       <dl className="mt-10 space-y-8">
         {faqs.map((f) => (

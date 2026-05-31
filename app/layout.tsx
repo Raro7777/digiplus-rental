@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { MobileCta } from "@/components/layout/MobileCta";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { localBusinessJsonLd } from "@/lib/seo/json-ld";
 import { site } from "@/lib/site-config";
 import "./globals.css";
 
@@ -25,6 +27,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   ),
+  openGraph: {
+    title: `${site.name} | ${site.tagline}`,
+    description: site.description,
+    type: "website",
+    locale: "ko_KR",
+  },
 };
 
 export default function RootLayout({
@@ -38,6 +46,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-slate-900">
+        <JsonLd data={localBusinessJsonLd()} />
         <Header />
         <main className="flex-1 pb-24 sm:pb-0">{children}</main>
         <Footer />
