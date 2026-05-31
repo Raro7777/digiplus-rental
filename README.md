@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Digiplus Rental
 
-## Getting Started
+디지플러스 복합기 렌탈 홈페이지입니다. 부천·인천·시흥·안산 사업장을 대상으로 복합기 렌탈, 렌탈료 진단, 무료 견적 문의를 안내합니다.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router
+- React
+- TypeScript
+- Tailwind CSS
+- Zod
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Required Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+NEXT_PUBLIC_SITE_URL=https://example.com
+NEXT_PUBLIC_COMPANY_EN=DG PLUS
+NEXT_PUBLIC_BUSINESS_LINE=사무기기전문 · 판매및임대
+NEXT_PUBLIC_CONTACT_TITLE=팀장
+NEXT_PUBLIC_CONTACT_NAME=김한석
+NEXT_PUBLIC_OFFICE_TEL=032-656-5416
+NEXT_PUBLIC_OFFICE_TEL_RAW=0326565416
+NEXT_PUBLIC_MOBILE=010-9265-8742
+NEXT_PUBLIC_MOBILE_TEL=01092658742
+NEXT_PUBLIC_FAX=032-656-5417
+NEXT_PUBLIC_EMAIL=new627@naver.com
+NEXT_PUBLIC_ADDRESS=경기도 부천시 길주로411번길 20, 춘의디아크원 911호
+NEXT_PUBLIC_KAKAO_URL=
+```
 
-## Learn More
+## Lead Handling Status
 
-To learn more about Next.js, take a look at the following resources:
+The production database has not been selected yet.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Current behavior:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Quote and diagnosis forms validate input.
+- Spam honeypot submissions return a generic success response.
+- Lead persistence is isolated in `lib/leads/store.ts`.
+- `storeLead()` currently uses deferred no-database behavior.
 
-## Deploy on Vercel
+When a database is selected, replace or extend `lib/leads/store.ts` without rewriting form components.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Verification
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+```
+
+If e2e tests are installed:
+
+```bash
+npm run test:e2e
+```
+
+## Deployment Checklist
+
+- Set `NEXT_PUBLIC_SITE_URL` to the production domain.
+- Confirm all phone, email, address, and Kakao channel values.
+- Run lint and build.
+- Submit one quote form and one diagnosis form in production.
+- Confirm how leads are handled before spending on ads.
+- Submit sitemap to Search Console after deployment.
