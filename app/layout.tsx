@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { MobileCta } from "@/components/layout/MobileCta";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { localBusinessJsonLd } from "@/lib/seo/json-ld";
+import { localBusinessJsonLd, siteUrl } from "@/lib/seo/json-ld";
 import { site } from "@/lib/site-config";
 import "./globals.css";
 
@@ -24,9 +24,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  ),
+  metadataBase: new URL(siteUrl()),
   openGraph: {
     title: `${site.name} | ${site.tagline}`,
     description: site.description,
