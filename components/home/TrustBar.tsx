@@ -9,12 +9,12 @@ const items = [
 
 export function TrustBar() {
   return (
-    <section className="border-y border-slate-200 bg-white">
+    <section className="border-y border-[#d9e1d8] bg-brand-paper">
       <div className="mx-auto grid max-w-6xl gap-4 px-4 py-5 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
         {items.map((item) => (
           <div key={item.label}>
-            <p className="text-xs font-medium text-slate-500">{item.label}</p>
-            <p className="mt-1 text-sm font-semibold text-slate-900">
+            <p className="text-xs font-bold text-brand-forest/60">{item.label}</p>
+            <p className="mt-1 text-sm font-black text-brand-navy">
               {item.value}
             </p>
           </div>

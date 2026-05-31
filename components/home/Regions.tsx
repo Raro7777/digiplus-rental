@@ -25,36 +25,48 @@ const areas = [
 
 export function Regions() {
   return (
-    <section className="bg-white py-14 sm:py-16">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-          부천·인천·시흥·안산 사업장 복합기 렌탈 상담 가능
-        </h2>
-        <p className="mt-4 max-w-3xl text-slate-600">
-          디지플러스는 부천, 인천, 시흥, 안산 지역 사업장을 대상으로 복합기 렌탈
-          상담과 설치 관리를 제공합니다. 사무실 규모, 월 출력량, 컬러 사용 비율,
-          현재 렌탈료를 확인한 뒤 적정 장비와 렌탈 조건을 안내드립니다.
-        </p>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+    <section className="bg-[#f7f8f4] py-14 sm:py-16">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div>
+          <p className="text-sm font-black tracking-wide text-brand-amber">
+            LOCAL SERVICE AREA
+          </p>
+          <h2 className="mt-3 text-2xl font-black leading-tight text-brand-navy sm:text-3xl">
+            부천·인천·시흥·안산
+            <br />
+            권역별 상담 페이지
+          </h2>
+          <p className="mt-4 text-sm leading-7 text-slate-700">
+            디지플러스는 설치 지역과 업종, 월 출력량, 컬러 사용 비율, 현재
+            렌탈료를 확인한 뒤 적정 장비와 렌탈 조건을 안내드립니다.
+          </p>
+          <p className="mt-8">
+            <Link
+              href="/regions"
+              className="inline-flex rounded-lg bg-brand-navy px-5 py-3 text-sm font-bold text-white hover:bg-brand-forest"
+            >
+              전체 지역 페이지 보기
+            </Link>
+          </p>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2">
           {areas.map((a) => (
             <Link
               key={a.title}
               href={a.href}
-              className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50/80 p-6 transition hover:border-brand-blue/40 hover:bg-white"
+              className="flex min-h-40 flex-col rounded-lg border border-[#d9e1d8] bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand-amber/50 hover:shadow-[0_16px_30px_rgba(16,35,30,0.08)]"
             >
-              <h3 className="text-lg font-semibold text-brand-navy">{a.title}</h3>
-              <p className="mt-2 flex-1 text-sm text-slate-600">{a.lines}</p>
-              <span className="mt-4 text-sm font-medium text-brand-blue">
+              <h3 className="text-lg font-black text-brand-navy">{a.title}</h3>
+              <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                {a.lines}
+              </p>
+              <span className="mt-4 text-sm font-bold text-brand-blue">
                 지역 페이지 →
               </span>
             </Link>
           ))}
         </div>
-        <p className="mt-8 text-center text-sm">
-          <Link href="/regions" className="font-semibold text-brand-blue hover:underline">
-            복사기·공단권 등 전체 지역 페이지 보기
-          </Link>
-        </p>
       </div>
     </section>
   );

@@ -10,14 +10,14 @@ type Props = { className?: string; dense?: boolean };
 
 export function CtaButtons({ className = "", dense }: Props) {
   const btn =
-    "inline-flex items-center justify-center rounded-lg font-semibold transition shadow-sm";
+    "inline-flex items-center justify-center rounded-lg font-bold transition shadow-sm";
   const pad = dense ? "px-4 py-2.5 text-sm" : "px-5 py-3 text-sm sm:text-base";
 
   return (
     <div className={`flex flex-wrap gap-3 ${className}`}>
       <Link
         href="/quote"
-        className={`${btn} ${pad} bg-brand-blue text-white hover:bg-brand-blue/90`}
+        className={`${btn} ${pad} bg-brand-navy text-white hover:bg-brand-forest`}
       >
         무료 견적 받기
       </Link>
@@ -38,7 +38,7 @@ export function CtaButtons({ className = "", dense }: Props) {
       </a>
       <a
         href={`tel:${site.mobileTel}`}
-        className={`${btn} ${pad} bg-brand-navy text-white hover:bg-brand-navy/90`}
+        className={`${btn} ${pad} bg-brand-blue text-white hover:bg-brand-blue/90`}
       >
         전화 상담하기
       </a>

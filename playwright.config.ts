@@ -20,7 +20,7 @@ export default defineConfig({
   webServer: {
     command: "npx.cmd next dev --turbopack --hostname 127.0.0.1 --port 3017",
     url: "http://127.0.0.1:3017",
-    reuseExistingServer: false,
+    reuseExistingServer: true,
     timeout: 120_000,
   },
 });
